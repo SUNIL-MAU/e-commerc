@@ -1,0 +1,83 @@
+{% extends 'index/base.html' %}
+
+{% block content %}
+<div id="products" class="container-fulid" style="margin-top: 6%;">
+    <!-- product -->
+    <div class="col-md-12">
+      <div class="card mb-3" style="border: none;">
+        <div class="row no-gutters">
+          <div class="col-md-4">          
+            <a href="#" ><img src="{{Products.imageURL}}" class="card-img" style="padding: 10px;" alt="..."></a>
+          </div>
+          <div class="col-md-5">
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">{{Products.name}}</a></h5>
+              
+              <p class="card-text">{{Products.disc}}</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              
+            </div>
+          </div>
+          <div class="col-md-3 mt-4" style="text-align: center;padding-right: 20px;">
+            <div class="card" style="text-align: left;">
+                <div class="card-header">
+                    Card Details
+                  </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked disabled>
+                        <label class="form-check-label" for="exampleRadios1">
+                            Without Exchange <br><span style="color:#B12704!important;">₹200&nbsp;&nbsp;</span><span style="text-decoration: line-through;">&nbsp;₹200</span>
+                        </label>
+                      </div>
+                  </li>
+                  <li class="list-group-item"><span style="font-weight: bold;">Add a Protection Plan:</span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" disabled>
+                        <label class="form-check-label" for="defaultCheck1">
+                            <a href="#">Acko 1-year Screen Protection Plan for<br><span style="color:#B12704!important;">₹4000</span></a>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" disabled>
+                        <label class="form-check-label" for="defaultCheck1">
+                          <a href="#">1 year Accidental & Liquid Damage Protection Plan for<br><span  style="color:#B12704!important;">₹4000</span></a>
+                        </label>
+                      </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="input-group " >
+                        <div class="input-group-prepend" >
+                          <div class="input-group-text bg_Image"  style="border-right: none !important;"  id="btnGroupAddon">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z"/>                                
+                              </svg>
+                          </div>
+                        </div>
+                        <button class="form-control bg_Image" style="border-left: none !important;" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon">Add to Cart</button>
+                        
+                      </div>
+                      <div class="input-group mt-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text bg_Image"  style="border-right: none !important;" id="btnGroupAddon">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-right-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                <path fill-rule="evenodd" d="M5.795 12.456A.5.5 0 0 1 5.5 12V4a.5.5 0 0 1 .832-.374l4.5 4a.5.5 0 0 1 0 .748l-4.5 4a.5.5 0 0 1-.537.082z"/>
+                              </svg>
+                          </div>
+                        </div>
+                        <button class="form-control bg_Image" style="border-left: none !important;" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon">Buy Now</button>
+                      </div>
+                  </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+
+
+{% endblock %}

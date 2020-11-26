@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Verdana, sans-serif; 
+    margin:0;
+    padding: 0;
+    background-color: hsl(0, 0%, 95%) !important;
+    /* background: url("/static/images/Login-bg.png") no-repeat; */
+    /* background-size: cover; */
+}
+
+section .nav{
+    
+    background-color: antiquewhite;
+    /* flex-direction: row; */
+    width: 80%;
+    margin: auto;
+}
+
+section .nav li{
+    display: inline-block;
+    list-style: none;
+    margin-left: 5px;
+    padding: 5px 5px;
+    cursor: pointer;
+    background-color: rgb(189, 119, 189);
+    color:black;
+
+
+}
+  
+section .nav li:hover{
+    background-color: rgb(13, 23, 167);
+    color: white;
+
+}
+
+
+.font-color{
+    color: white;
+}
+
+.bg_Image{
+    background-color: #000000 !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    
+}
+
+.header-color button a{
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .header-color div span.colSm{
+    color: #ffffff;
+  }
+.fgroup{
+    margin-bottom: .5rem !important;
+}
+  /* .login-bg{
+      background: url("/static/images/Login-bg.png") repeat;
+      width: 100%;
+      height:100%;
+  } */
+
+.tableFixHead {
+        overflow-y: auto;
+        height: 300px;
+      }
+      .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+        border-top: 2px solid #dee2e6;
+      }
+      .tableFixHead table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      /* .tableFixHead table tbody{
+          border: 1px solid #dee2e6;
+      } */
+
+      th {
+        background: #eee;
+      }

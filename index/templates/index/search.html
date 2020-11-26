@@ -1,0 +1,43 @@
+{% extends 'index/base.html' %}
+
+{% block content %}
+
+{% load cart %}
+<div id="products" class="container" style="margin-top: 6%;">
+  <!-- product -->
+{% if Products %}
+
+  {% for product in Products %}
+  <div class="col-md-12">
+    <div class="card mb-3" id="{{product.id}}">
+      <div class="row no-gutters">
+        <div class="col-md-3">          
+          <a href="{% url 'prod_disc' product.id %}"  target="_blank"><img src="{{product.imageURL}}" class="card-img" style="height:200px;width:200px; padding: 10px;" alt="..."></a>
+        </div>
+        <div class="col-md-9">
+          <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'prod_disc' product.id %}" target="_blank">{{product.name}}</a></h5>
+            
+            <p class="card-text">{{product.disc}}</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+ 
+  </div>
+
+  {% endfor%}
+
+  {% else %}
+  <h2>Sorry,  search result not found</h2>
+
+  {% endif%}
+
+  <!-- product end -->
+</div>
+</div>
+</div>
+
+{% endblock %}
