@@ -12,4 +12,5 @@ urlpatterns = [
     path('search/', views.Search, name='search'),
     path('prod_disc/<int:id>/', views.Product_disc, name='prod_disc'),
     
+    
 ]

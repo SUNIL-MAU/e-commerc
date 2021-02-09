@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/stylee.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}">
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -125,7 +125,7 @@
             {% if request.session.customer %}
             <button class="btn  my-2 my-sm-0 ml-1" ><a href="/cart">Cart<span class="badge badge-info">{{request.session.cart.keys|cart_length}}</span></a></button>
 
-              <button class="btn  my-2 my-sm-0 ml-1" ><a href="/order">Orders</a></button>
+              
                 
             <button class="btn  my-2 my-sm-0 ml-1" ><a href="/logout">Logout</a></button>
             {% else %}
@@ -212,7 +212,12 @@
       });
     });//End of document ready
   </script>
+  
+     {% block js %}
+     
 
+      {% endblock %}
+  
 
 
 </body>

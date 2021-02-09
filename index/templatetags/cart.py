@@ -5,12 +5,10 @@ register = template.Library()
 @register.filter(name='is_in_cart')
 def is_in_cart(product,cart):
     keys = cart.keys()
-    # print('keys--', list(keys))
-    # print(cart)
-    # print('product----- ', product)
+    # print('product',product)
+    # print('cart',cart)
     for id in keys:
-        # print(type(id))
-        # print("string" ,type(product.id))
+      
         if int(id) == product.id:
             return True
 
@@ -32,6 +30,8 @@ def cart_quantity(product,cart):
 
 @register.filter(name='price_total')
 def prince_total(product,cart):
+    # print(cart)
+    # print(product)
     return product.price * cart_quantity(product,cart)  
 
 @register.filter(name='totel_cart_price')

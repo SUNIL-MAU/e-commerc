@@ -4,7 +4,7 @@ from .models import *
 from django.views import View
 from .middlewares.auth import auth_middleware
 from django.utils.decorators import method_decorator
-
+import razorpay
 
 # Create your views here.
 class home(View):
@@ -32,7 +32,7 @@ class home(View):
             cart = {}    
             cart[product] = 1
         request.session['cart'] = cart
-        # print(cart)    
+        print(cart)    
         return redirect('home')
         
 
@@ -191,12 +191,12 @@ class CheckOut(View):
         
         for product in products:
             
-            print(product)
+            # print(product)
             order = Order(product=product,customer=Customer(id=customer),quantity=cart.get(str(product.id)), price=product.price,address=address,phone=phone)
             
             order.save()
         request.session['cart'] = {}            
-        return redirect('cart')
+        return redirect('order')
 
 
 class OrderView(View):
@@ -205,11 +205,51 @@ class OrderView(View):
         customer = request.session.get('customer')
         orders = Order.objects.filter(customer=customer)
         
-        # cart_length = len(request.session.get('cart').keys())
+        c = Order.objects.all().values_list()
         
-        return render(request, 'index/order.html',{'orders':orders })
+        total = []
+        for i in range(0,len(c)):
+            p = c[i][3]*c[i][4]
+            total.append(p)
+        totol_price = sum(total)  
 
+        return render(request, 'index/order.html',{'orders':orders,'count':c.count(), 'total_price':totol_price})
 
+    def post(self, request):
+        key_id = 'rzp_test_RFRahJ9fHePOkp'
+        key_secret = 'PRY5Km7Zn9eM4qZzAi7khOQI'
+        totalamount = request.POST.get('totalPrice')
+        print(totalamount)
+        client = razorpay.Client(auth=(key_id, key_secret))
+        data = {
+                "amount": int(totalamount)*100,
+                "currency":"INR",
+                "receipt": "receipt id of order",
+                "notes": {
+                "email":"sunilmaurya71297@gmail.com",
+                "name":"anuj MAURYA",
+                "Purchese_for":"shoot shalwar"
+            } 
+        } 
+        order = client.order.create(data=data) 
+
+        orderdata = {}
+        for key, value in order.items():
+            orderdata[key]= value
+        order_id = orderdata['id']    
+        customer = request.session.get('customer')
+        orders = Order.objects.filter(customer=customer)
+        
+        c = Order.objects.all().values_list()
+        
+        total = []
+        for i in range(0,len(c)):
+            p = c[i][3]*c[i][4]
+            total.append(p)
+        totol_price = sum(total)  
+
+        return render(request, 'index/order.html',{'orders':orders,'count':c.count(), 'total_price':totol_price,'order_id':order_id})
+    
 
 def Search(request):
     query = request.POST.get('search')
@@ -219,6 +259,13 @@ def Search(request):
 
 
 def Product_disc(request, id):
-    product = Product.objects.get(pk=id)
-    context = {'Products':product}
+    if request.method=='GET':
+        product = Product.objects.get(pk=id)
+        context = {'Products':product}
+    else:
+        return HttpResponse('post')    
     return render(request, 'index/prod_disc.html', context)
+
+
+
+   

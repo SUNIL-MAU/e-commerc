@@ -1,6 +1,10 @@
 {% extends 'index/base.html' %}
 
 {% block content %}
+
+{% load cart %}
+
+
 <div id="products" class="container-fulid" style="margin-top: 6%;">
     <!-- product -->
     <div class="col-md-12">
@@ -8,7 +12,10 @@
         <div class="row no-gutters">
           <div class="col-md-4">          
             <a href="#" ><img src="{{Products.imageURL}}" class="card-img" style="padding: 10px;" alt="..."></a>
+           
           </div>
+  
+         
           <div class="col-md-5">
             <div class="card-body">
               <h5 class="card-title"><a href="#">{{Products.name}}</a></h5>
